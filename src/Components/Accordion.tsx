@@ -1,10 +1,10 @@
 import React from "react";
 
-function Accordion() {
+function Accordion(props: any) {
     console.log("Accordion");
 
     return <div>
-        <AcoordionText />
+        <AcoordionText title={props.title}/>
         <AccordionBody />
     </div>
 }
@@ -19,10 +19,10 @@ function AccordionBody() {
 
 }
 
-function AcoordionText() {
+function AcoordionText(props: any) {
     console.log("Accordion text rendering");
     return (
-        <h3>Menu</h3>
+        <h3>{props.title}</h3>
     )
 }
 
