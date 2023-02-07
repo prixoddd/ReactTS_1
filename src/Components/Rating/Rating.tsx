@@ -1,6 +1,10 @@
 import React from "react";
 
-function Rating(props: any) {
+type RatingPropsType = {
+    value: number
+}
+
+function Rating(props: RatingPropsType) {
     // debugger
     if (props.value === 1) {
         return (
@@ -76,7 +80,11 @@ function Rating(props: any) {
     
 };
 
-function Star(props: any) {
+type StarPropsType = {
+    selected: boolean
+}
+
+function Star(props: StarPropsType) {
     console.log("star rendered");
 
     if (props.selected === true) {

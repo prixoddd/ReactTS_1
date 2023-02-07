@@ -12,8 +12,8 @@ function App() {
         <div>
             <PageTitle title={"This is APP Component"} />
             <Rating value={1} />
-            <Accordion title={"Hasan"}/>
-            <Accordion title={"Menu"}/>
+            <Accordion titlevalue={"Users"} collapsed={true}/>
+            <Accordion titlevalue={"Menu"} collapsed={false}/>
             <Rating value={2} />
             <Rating value={3} />
             <Rating value={4} />
@@ -22,7 +22,11 @@ function App() {
     );
 }
 
-function PageTitle(props: any) {
+type PageTitlePropsType = {
+    title: string
+}
+
+function PageTitle(props: PageTitlePropsType) {
     return <h1>{props.title}</h1>
 }
 
