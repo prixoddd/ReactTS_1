@@ -9,7 +9,7 @@ function Accordion(props: AccordionPropsType) {
 
     return <div>
         <AcoordionText title={props.titlevalue} />
-        <AccordionBody collapsed={props.collapsed}/>
+        <AccordionBody collapsed={props.collapsed} />
     </div>
 }
 
@@ -19,16 +19,16 @@ type AcoordionBodyPropsType = {
 
 function AccordionBody(props: AcoordionBodyPropsType) {
     console.log("Accordion body rendering");
-    if(props.collapsed === true) {
+    if (props.collapsed === true) {
         return <ul>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-    </ul>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+        </ul>
     } else {
         return <ul>
-        
-    </ul>
+
+        </ul>
     }
 }
 
