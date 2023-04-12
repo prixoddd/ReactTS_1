@@ -1,19 +1,21 @@
 import React, {useState} from 'react';
-import "./Onoff1.css"
+import "../Onoff/Onoff1.css"
 
 type ElementsPropsType ={
     on: boolean
-    setOnOff: (b:boolean) => void
+    defaultOn?: boolean
 }
 
 function UncontrolledElements(props: ElementsPropsType) {
+    const [OnOff, setOnOff] = useState<boolean>(props.defaultOn ? props.defaultOn : false)
+
     const controllOff = (s:string) => {
-        s === "on" ? props.setOnOff(true) : props.setOnOff(false)
+        s === "on" ? setOnOff(true) : setOnOff(false)
     }
 
 
     return <div>
-        {props.on === true ? <Element controllOff={controllOff} color_rOne="green" color_rTwo="" color_s="green" /> : <Element controllOff={controllOff} color_rOne="" color_rTwo="red" color_s="red" />}
+        {OnOff === true ? <Element controllOff={controllOff} color_rOne="green" color_rTwo="" color_s="green" /> : <Element controllOff={controllOff} color_rOne="" color_rTwo="red" color_s="red" />}
     </div>
 }
 

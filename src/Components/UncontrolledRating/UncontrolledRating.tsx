@@ -2,13 +2,13 @@ import React, {useState} from "react";
 import {stateType} from '../../App';
 
 type RatingPropsType = {
-    value: number
+    defaultValue?: number
     // onClick: (s: stateType) => void
 }
 
 export function UncontrolledRating(props: RatingPropsType) {
 
-    let [value, setValue] = useState(0)
+    let [value, setValue] = useState(props.defaultValue ? props.defaultValue : 0)
     // debugger
     return (
         <div>

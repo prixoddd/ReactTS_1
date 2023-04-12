@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 
 import './App.css';
-import Accordion from './Components/Accordion';
+import Accordion from './Components/Accordion/Accordion';
 import {Rating} from './Components/Rating/Rating';
 import Elements from "./Components/Onoff/Onoff";
-import UncontrolledAccordion from './Components/UncontrolledAccordion';
-import {UncontrolledRating} from './Components/Rating/UncontrolledRating';
-import UncontrolledElements from './Components/Onoff/UncontrolledOnoff';
+import UncontrolledAccordion from './Components/UncontrolledAcoordion/UncontrolledAccordion';
+import {UncontrolledRating} from './Components/UncontrolledRating/UncontrolledRating';
+import UncontrolledElements from './Components/UncontrolledOnOff/UncontrolledOnoff';
 
 
 export type stateType = 1 | 2 | 3 | 4 | 5
@@ -21,17 +21,18 @@ function App() {
     return (
         <div>
             <PageTitle title={"This is APP Component"} />
-            <Accordion titleValue={"Users"} collapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed}/>
+            {/*<Accordion titleValue={"Users"} collapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed}/>*/}
             {/*<Accordion titleValue={"Menu"} collapsed={false}/>*/}
-            {/*<UncontrolledAccordion titleValue={"Uncontrolled"} collapsed={false}/>*/}
+            <UncontrolledAccordion titleValue={"Uncontrolled"} />
+            <UncontrolledAccordion titleValue={"Uncontrolled"} />
             {/*<Rating value={1} />*/}
             {/*<Rating value={2} />*/}
             {/*<Rating value={3} />*/}
             {/*<Rating value={4} />*/}
-            <UncontrolledRating value={5} />
-            <Rating value={ratingvalue} onClick={setRatingValue} />
-            <Elements on={false}/>
-            <UncontrolledElements on={OnOff} setOnOff={setOnOff} />
+            {/*<UncontrolledRating value={5} />*/}
+            {/*<Rating value={ratingvalue} onClick={setRatingValue} />*/}
+            {/*<Elements on={false}/>*/}
+            {/*<UncontrolledElements on={OnOff} setOnOff={setOnOff} />*/}
         </div>
     );
 }
