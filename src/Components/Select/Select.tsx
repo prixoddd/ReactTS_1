@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import {string} from 'prop-types';
+
 import s from './Select.module.css'
-import {Simulate} from "react-dom/test-utils";
-import keyUp = Simulate.keyUp;
+
 
 type ItemType = {
     title: string
@@ -33,18 +32,25 @@ export function Selectin(props: SelectPropsType) {
         // setIsOpen(!isOpen)
     }
 
-    const [selected, setSelected] = useState(0)
+    const [selected, setSelected] = useState(1)
     const onMouseEnterHandler = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
         setSelected(e.currentTarget.value)
     }
 
     const onKeyPressHandler = (e: React.KeyboardEvent<HTMLDivElement>) => {
-        if(e.key === "ArrowUp") {
-            setSelected(selected - 1)
-        } else if(e.key === "ArrowDown") {
-            setSelected(selected + 1)
+        if (!isOpen) {
+            setIsOpen(!isOpen)
+        } else {
+            if (e.key === "ArrowUp") {
+                setSelected(selected > 1 ? selected - 1 : selected)
+            } else if (e.key === "ArrowDown") {
+                setSelected(selected < props.items.length ? selected + 1 : selected)
+            } else if (e.key === "Enter") {
+                setValue(selected)
+                setIsOpen(!isOpen)
+            }
         }
-        // console.log(e.key)
+
     }
 
     return <div className={s.general}>
@@ -55,11 +61,13 @@ export function Selectin(props: SelectPropsType) {
         <div className={s.maindiv} onClick={onTitleClickHandler} onKeyDown={onKeyPressHandler} tabIndex={0}>
             {props.items.map(el => el.value === value && el.title)}
             <ul>
-                {isOpen && props.items.map((el, index) => el.value !== value &&
+                {isOpen && props.items.map((el, index) =>
                     <li className={el.value === selected ? s.selected : ''}
                         onClick={onTitleElementClickHandler}
                         onMouseEnter={onMouseEnterHandler}
-                        onMouseLeave={()=>{setSelected(0)}}
+                        onMouseLeave={() => {
+                            setSelected(0)
+                        }}
 
                         value={el.value}
                         key={index}
