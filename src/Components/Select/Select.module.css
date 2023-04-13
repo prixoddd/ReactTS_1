@@ -18,7 +18,7 @@
 .maindiv ul {
     display: block;
     list-style: none;
-    background-color: #66bf3c;
+    /*background-color: #66bf3c;*/
     padding: 0;
     position: absolute;
     top: 14px;
@@ -27,8 +27,12 @@
 
 .maindiv li {
     width: 80px;
-    background-color: red;
+    /*background-color: red;*/
     display: block;
     list-style: none;
 
+}
+
+.selected {
+    background-color: #66bf3c;
 }
