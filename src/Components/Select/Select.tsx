@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import s from './Select.module.css'
 
@@ -20,6 +20,10 @@ export function Selectin(props: SelectPropsType) {
     const [value, setValue] = useState<number>(props.value)
     // const [nameTitle, setNameTitle] = useState<string>('nothing')
     const [isOpen, setIsOpen] = useState<boolean>(false)
+
+    useEffect(() => {
+        setValue(props.value)
+    }, [props.value])
 
     const onTitleClickHandler = () => {
         setIsOpen(!isOpen)
